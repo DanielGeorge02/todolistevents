@@ -3,26 +3,33 @@ import Content from "./Content";
 import Footer from "./Footer";
 import AddEvent from "./AddEvent";
 import Header from "./Header";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Search from "./Search";
 function App() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: "Practice coding",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "Read books",
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Gym",
-    },
-  ]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("todo_list"))
+    // [
+
+    // {
+    //   id: 1,
+    //   checked: true,
+    //   item: "Practice coding",
+    // },
+    // {
+    //   id: 2,
+    //   checked: false,
+    //   item: "Read books",
+    // },
+    // {
+    //   id: 3,
+    //   checked: false,
+    //   item: "Gym",
+    // },
+    // ]
+  );
+  // useEffect(() => {
+  //   JSON.parse(localStorage.getItem("todo_list"));
+  // }, []);
   const [newItem, setNewItem] = useState("");
   const handleCheck = (id) => {
     const listitems = items.map((item) =>
